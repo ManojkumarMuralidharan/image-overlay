@@ -96,7 +96,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
  
         <div id="overlay" class="modal" hidden$="{{hideOverlay}}" >
           <div class="modal-content">
-             <h1 id="modal-title">Modal Title</h1>
              <div class="btn-close" id="modal_close" type="button" on-click="toggleOverlay">
               X
             </div>
@@ -118,14 +117,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     hideOverlay: false,
     test : 'test',
     ready: function() {
-        this.items = [
-            'Responsive Web App boilerplate',
-            'Iron Elements and Paper Elements',
-            'End-to-end Build Tooling (including Vulcanize)',
-            'Unit testing with Web Component Tester',
-            'Routing with Page.js',
-            'Offline support with the Platinum Service Worker Elements'
-            ];
           
         },
     toggleOverlay : function(){
@@ -134,7 +125,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     properties: {
       imageUrl: {
         type: String,
-        value: 'https://www.polymer-project.org/images/logos/p-logo.svg',
+        value: "https://www.polymer-project.org/images/logos/p-logo.svg",
         notify: true
       },
       hideOverlay:{
