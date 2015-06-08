@@ -1,3 +1,4 @@
+
 ![](https://cloud.githubusercontent.com/assets/110953/7877439/6a69d03e-0590-11e5-9fac-c614246606de.png) 
 ## Polymer Starter Kit
 
@@ -129,3 +130,7 @@ You will also want to navigate to `chrome://serviceworker-internals` and unregis
 ## Contributing
 
 Polymer Starter Kit is a new project and is an ongoing effort by the Web Component community. We welcome your bug reports, PRs for improvements, docs and anything you think would improve the experience for other Polymer developers.
+
+# image-overlay
+A polymer element &lt;image-overlay>&lt;/image-overlay> to display image over an overlay 
+
