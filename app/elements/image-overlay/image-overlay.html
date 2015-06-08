@@ -1,0 +1,148 @@
+<!--
+@license
+Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<dom-module id="image-overlay">
+  <style>
+   @host {
+        * {
+          display: inline-block;
+          position: relative;
+          overflow: hidden;
+        }
+
+        [hidden], .hidden {
+          display: none;
+        }
+      };
+
+      /* new style for Chromium */
+      :host {
+        display: inline-block;
+        position: relative;
+        overflow: hidden;
+      };
+
+      :host([hidden]:host, .hidden:host) {
+        display: none;
+      };
+    .modal[data-hidden="false"] {
+      opacity: 1;
+      z-index: 2;
+    };
+    .modal {
+      background: rgba(0,0,0,0.8);
+      height: 100%;
+      left: 0;
+      display: flex;
+      overflow: auto;
+      padding: 1.5em;
+      position: fixed;
+      top: 0;
+      transition: opacity .2s;
+      width: 100%;
+      z-index: 99999;
+    };
+    .content-image{
+      width:100%;
+    };
+    .modal-content {
+      background: none; /*#efefef*/
+      margin: auto;
+      max-width: 800px;
+      overflow: auto;
+      overflow-x: hidden;
+      padding: 1.5em;
+      position: relative;
+      transform: scale(0.8);
+      transition: transform .3s;
+      width: 100%;
+    };
+    .btn-close {
+      background: none;
+      color: white;
+      font-family: arial;
+      font-size: 2em;
+      font-weight: 800;
+      border: none;
+      line-height: .65em;
+      cursor: pointer;
+      right: .25em;
+      padding: 0;
+      position: absolute;
+      top: .25em;
+      z-index: 2;
+      text-decoration: none;
+    };
+    .hidden{
+      display: none;
+    }
+
+
+  </style>
+  <template>
+    <div>
+      <img src="{{imageUrl}}" on-click="toggleOverlay" />
+    </div>
+    <span hidden$={{hideOverlay}}>checked</span>
+ 
+        <div id="overlay" class="modal" hidden$="{{hideOverlay}}" >
+          <div class="modal-content">
+             <h1 id="modal-title">Modal Title</h1>
+             <div class="btn-close" id="modal_close" type="button" on-click="toggleOverlay">
+              X
+            </div>
+            <div>
+            <img src="{{imageUrl}}"  class="content-image" />
+            </div>
+            
+          </div>
+          
+        </div> 
+
+    
+  </template>
+</dom-module>
+<script>
+(function() {
+  Polymer({
+    is: 'image-overlay',
+    hideOverlay: false,
+    test : 'test',
+    ready: function() {
+        this.items = [
+            'Responsive Web App boilerplate',
+            'Iron Elements and Paper Elements',
+            'End-to-end Build Tooling (including Vulcanize)',
+            'Unit testing with Web Component Tester',
+            'Routing with Page.js',
+            'Offline support with the Platinum Service Worker Elements'
+            ];
+          
+        },
+    toggleOverlay : function(){
+      this.hideOverlay = !this.hideOverlay;
+    },
+    properties: {
+      imageUrl: {
+        type: String,
+        value: 'https://www.polymer-project.org/images/logos/p-logo.svg',
+        notify: true
+      },
+      hideOverlay:{
+        type: Boolean,
+        value: true
+      }
+      
+    }
+  });
+})();
+</script>
